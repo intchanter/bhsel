@@ -5,11 +5,11 @@ from selenium.common.exceptions import ElementNotVisibleException
 
 
 class Page():
-    def __init__(self, setup):
-        self.setup = setup
-        self.base_url = setup.base_url
-        self.selenium = setup.selenium
-        self.timeout = setup.timeout
+    def __init__(self, config):
+        self.config = config
+        self.base_url = config.base_url
+        self.selenium = config.selenium
+        self.timeout = config.timeout
 
     def get_url(self, url):
         self.selenium.get(url)
@@ -39,7 +39,7 @@ class Page():
         except NoSuchElementException:
             return False
         finally:
-            self.selenium.implicitly_wait(self.setup.default_implicit_wait)
+            self.selenium.implicitly_wait(self.config.default_implicit_wait)
 
     def is_element_visible(self, *locator):
         try:
