@@ -21,13 +21,13 @@ class User(object):
         mc = memcache.Client([memcache_server])
         passwords = mc.get(key)
         if passwords is None:
-            passwords = self.set_passwords(username)
+            passwords = self.set_passwords()
             mc.set(key, passwords)
         return json.loads(passwords)
 
     def set_passwords(self):
         args = {
-            'user': username,
+            'user': self.username,
             'method': 'reset_pass',
         }
         response = requests.get(api_url, params=args)
