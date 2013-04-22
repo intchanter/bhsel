@@ -21,7 +21,7 @@ class User(object):
         mc = memcache.Client([memcache_server])
         passwords = mc.get(key)
         if passwords is None:
-            passwords = set_passwords(username)
+            passwords = self.set_passwords(username)
             mc.set(key, passwords)
         return json.loads(passwords)
 
