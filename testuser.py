@@ -40,13 +40,17 @@ class User(object):
         for site in ('www.bluehost.com', 'i.bluehost.com', 'my.bluehost.com'):
             url = protocol + site + page
             self.selenium.get(url)
-            find_by_css = self.selenium.find_element_by_css_selector
-            user_field = find_by_css('.login_username input')
-            pass_field = find_by_css('.login_password input')
-            login_button = find_by_css('.login_submit input')
-            user_field.send_keys(self.username)
-            pass_field.send_keys(self.web_pass)
-            login_button.click()
+            self.login_single_page()
+
+    def login_single_page(self):
+        find_by_css = self.selenium.find_element_by_css_selector
+        user_field = find_by_css('.login_username input')
+        pass_field = find_by_css('.login_password input')
+        login_button = find_by_css('.login_submit input')
+        user_field.send_keys(self.username)
+        pass_field.send_keys(self.web_pass)
+        login_button.click()
+
 
 
 if __name__ == '__main__':
