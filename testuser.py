@@ -32,7 +32,7 @@ class User(object):
         if passwords is None:
             passwords = self.set_passwords()
             mc.set(key, passwords)
-        if not 'web_pass' in passwords:
+        if not ('web_pass' in passwords and 'other_pass' in passwords):
             print('Missing passwords.  We got: ', passwords)
         return json.loads(passwords)
 
