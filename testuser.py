@@ -17,7 +17,7 @@ class User(object):
 
     def __init__(self, selenium, username=None):
         if username is None:
-            username = 'seleniumcron'
+            username = 'seleniumhumantwo'
         self.username = username
         self.selenium = selenium
         self.brand = 'bluehost'
