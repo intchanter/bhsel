@@ -4,7 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementNotVisibleException
 
 
-class Page():
+class Page(object):
     def __init__(self, config):
         self.config = config
         self.base_url = config.base_url
