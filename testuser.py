@@ -5,6 +5,7 @@ Manage Bluehost internal user logins
 import json
 import memcache
 import requests
+from localconfig import local_username
 
 memcache_server = '127.0.0.1:11211'
 key = 'test_user_pass'
@@ -17,7 +18,7 @@ class User(object):
 
     def __init__(self, selenium, username=None):
         if username is None:
-            username = 'seleniumhumantwo'
+            username = local_username
         self.username = username
         self.selenium = selenium
         self.brand = 'bluehost'
