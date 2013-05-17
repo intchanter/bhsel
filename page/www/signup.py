@@ -17,5 +17,5 @@ values = {
 }
 class Signup(Page):
     def __init__(self, config):
-        super().__init__(config)
+        super(Signup, self).__init__(config)
         self.expected_title = values[self.config.brand]['expected_title']

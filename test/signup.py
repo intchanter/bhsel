@@ -11,8 +11,7 @@ class TestSignup(TestCase):  # pylint: disable=R0904
     '''
 
     def setUp(self):
-        self.selenium = Firefox()
-        self.user = User(self.selenium)
+        self.user = User(config.selenium)
 
     def test_signup(self):
         '''
@@ -20,14 +19,13 @@ class TestSignup(TestCase):  # pylint: disable=R0904
         '''
         self.user.login()
         page = Main(config)
-        self.selenium.get('http://www.bluehost.com')
+        page.selenium.get('http://www.bluehost.com')
 
         expected_title = 'Web Hosting, Domain Names, eCommerce - Bluehost.com'
-        title = self.selenium.title
+        title = page.selenium.title
         asserts.equal(title, expected_title)
         page = page.start_signup()
 
         expected_title = 'Sign Up Now - Web hosting provider - Bluehost.com'
-        title = self.selenium.title
+        title = page.selenium.title
         asserts.equal(title, expected_title)
-        self.selenium.quit()
