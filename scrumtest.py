@@ -7,6 +7,8 @@ from testuser import User
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from wordpress import WPTest
+from b2evolution import B2Test
+from drupal import DTest
 from cpanel.software.phpconfig import PhpConf
 import time
 import os
@@ -38,9 +40,15 @@ phpver.phpv(ver)
 #simple.get_to_simplescripts()
 #simple.install_script('WordPress', 5)
 wptest = WPTest(browser, path, etime, ip, user, dom, isbeta)
+betest = B2Test(browser, path, etime, ip, user, dom, isbeta)
+dtest = DTest(browser, path, etime, ip, user, dom, isbeta)
 wptest.wordpress(ver)
-phpv = '54'
+betest.b2evolution(ver)
+dtest.Drupal7(ver)
+ver = '54'
 phpver.phpv(ver)
 wptest.wordpress(ver)
+betest.b2evolution(ver)
+dtest.Drupal7(ver)
 test.tar_screenshots()
 print("Test complete you can get your screenshots at "+ path +'/'+ etime +".tar")

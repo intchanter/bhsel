@@ -45,6 +45,9 @@ class SS():
                         
         return;
 
+    def wait_for_element(self):
+        WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_css_selector('.footerA'))
+    
     def install_script(self, name, tries):
         timer = 5
         try:
@@ -54,7 +57,7 @@ class SS():
 
         #my $domain_field = $selenium->find_element(@{$map->{'new_domain_field'}});
         time.sleep(10)
-        wait_for_element = WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_css_selector('.footerA'))
+        #wait_for_element = WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_css_selector('.footerA'))
         WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_link_text(name)).click()
         self.selenium.find_element_by_css_selector('a.link_button > div.submit > input.button').click()
         WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_id('install_dir')).clear()
@@ -64,16 +67,16 @@ class SS():
         WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_name('data[Script][ss_tags][ss_admin_pass]')).clear()
         self.selenium.find_element_by_name('data[Script][ss_tags][ss_admin_pass]').send_keys('Test1234')
         self.selenium.find_element_by_id('license_box').click()
-        wait_for_element
+        self.wait_for_element()
         self.selenium.find_element_by_id('install_button').click()
-        wait_for_element
+        self.wait_for_element()
         if (self.selenium.find_elements_by_id('ScriptOverwrite')):
             self.selenium.find_element_by_id('ScriptOverwrite').click()
-            self.selenium.find_elementby_id('install_button').click()
-            wait_for_element
+            self.selenium.find_element_by_id('install_button').click()
+            self.wait_for_element()
     
         self.selenium.find_element_by_link_text('My Installs').click()
-        wait_for_element
+        self.wait_for_element()
         while ((self.selenium.find_element_by_css_selector('.status_count_text').text == 'installing') or (self.selenium.find_element_by_css_selector('.status_count_text',).text == 'queued')  or (self.selenium.find_element_by_css_selector('.status_count_text').text == 'removing') or (self.selenium.find_element_by_css_selector('.status_count_text').text == 'pending')):
             print ("Waiting on install\n")
             time.sleep(5);
@@ -81,7 +84,7 @@ class SS():
         print (self.selenium.find_element_by_css_selector( '.status_count_text',).text)
         if (self.selenium.find_element_by_css_selector( '.status_count_text').text == 'error'):
             #$selenium->find_element('a.fakebutton', 'css')->click;
-            wait_for_element
+            self.wait_for_element()
             tries = tries - 1
             if (tries <= 0 ):
                 raise Exception ("\nWe Tried to install $script 5 Times and failed please restart script\n")

@@ -53,7 +53,7 @@ class WPTest():
             handles = self.selenium.window_handles
             self.selenium.switch_to_window(handles[1])
         else:
-            self.selenium.send.keys(Keys.COMMAND + "N")
+            self.selenium.find_element_by_id('item_simplescripts-sb').click()
             handles = self.selenium.window_handles
             self.selenium.switch_to_window(handles[2])
             self.selenium.get("http://" + self.ip + "/~" + self.user + "/WordPress/")
