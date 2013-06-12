@@ -10,7 +10,9 @@ from page.www.signup import Signup
 
 elements = {
     'bluehost': {
-        'expected_title': 'Web Hosting, Domain Names, eCommerce - Bluehost.com',
+        'expected_title': (
+            'Web Hosting, Domain Names, eCommerce - Bluehost.com'
+        ),
         'wait_element': ('css', '#copyright'),
     },
     'fastdomain': {
@@ -20,6 +22,7 @@ elements = {
     'justhost': {
     },
 }
+
 
 class Main(Page):
     '''
@@ -34,6 +37,10 @@ class Main(Page):
         '''
         Clicks the Signup button on the first page
         '''
-        button = self.selenium.find_element_by_css_selector('img.signup_button')
+        button = self.selenium.find_element_by_css_selector(
+            'img.signup_button'
+        )
         button.click()
-        return Signup(self.config)
+        page = Signup(self.config)
+        page.validate()
+        return page

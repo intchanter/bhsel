@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementNotVisibleException
 
+
 class Page(object):
     '''
     Represents a single page.
@@ -17,6 +18,9 @@ class Page(object):
         self.selenium = config.selenium
         self.timeout = config.timeout
         self.expected_title = 'UNDEFINED TITLE'
+        self.elements = {
+            'expected_title': '',
+        }
 
     def get_url(self, url):
         '''
@@ -40,7 +44,7 @@ class Page(object):
         WebDriverWait(self.selenium, self.timeout).until(
             lambda s: self.selenium.title
         )
-        asserts.contains(self.selenium.title, self.expected_title)
+        asserts.contains(self.selenium.title, self.elements['expected_title'])
 
     def get_current_url(self):
         '''
@@ -51,6 +55,9 @@ class Page(object):
         )
 
     def is_element_present(self, *locator):
+        '''
+        Return whether the specified element exists on the page.
+        '''
         self.selenium.implicitly_wait(0)
         try:
             self.selenium.find_element(*locator)
@@ -70,4 +77,7 @@ class Page(object):
             return False
 
     def back(self):
+        '''
+        Return to the previous page.
+        '''
         self.selenium.back()
