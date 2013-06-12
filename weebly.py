@@ -14,6 +14,31 @@ class Test():
         self.home = home
         self.path = path
         self.domain = domain
+        self.paragraph_with_title = 'id_58462494'
+        self.paragraph_with_picture = 'id_20731748'
+        self.picture = 'id_87358824'
+        self.title = 'id_62850560'
+        self.paragraph = 'id_44785763'
+        self.multiple_columns = 'id_51424376'
+        self.custom_html = 'id_92495494'
+        self.contact_form = 'id_45444132'
+        self.button = 'id_59396708'
+        self.photo_gallery = 'id_18362204'
+        self.slideshow = 'id_31574711'
+        self.file = 'id_46196121'
+        self.audio_player = 'id_82970842'
+        self.embeded_document = 'id_3971316'
+        self.flash = 'id_64190838'
+        self.google_maps = 'id_42844424'
+        self.flickr_photo_slideshow = 'id_85353141'
+        self.youtube_video = 'id_8893461'
+        self.product_block = 'id_61719152'
+        self.feed_reader = 'id_62317151'
+        self.divider = 'id_79078446'
+        self.online_bookings = 'id_48408403'
+        self.rsvp_form = 'id_20040879'
+        self.survey = 'id_42391650'
+        self.content = 'weebly-content-area'
         
     def tar_screenshots(self):
         #Create Tar file
@@ -97,52 +122,53 @@ class Test():
         frame = self.selenium.find_element_by_css_selector('iframe')
         self.selenium.switch_to_frame(frame)
         chains = webdriver.ActionChains(self.selenium)
-        WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_name('id_58462494'))
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_58462494'), self.selenium.find_element_by_id('empty-message-inner')).perform()
+        WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_name(self.paragraph_with_title))
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.paragraph_with_title), self.selenium.find_element_by_id('empty-message-inner')).perform()
         time.sleep(3)
         self.selenium.find_element_by_id('logo').click()
         chains = webdriver.ActionChains(self.selenium)
         time.sleep(3)
-        chains.click_and_hold(self.selenium.find_element_by_name('id_20731748'))
+        chains.click_and_hold(self.selenium.find_element_by_name(self.paragraph_with_picture))
         time.sleep(3)
-        chains.release(self.selenium.find_element_by_class_name('weebly-content-area')).perform()
-        #chains.drag_and_drop(self.selenium.find_element_by_name('id_20731748'), self.selenium.find_element_by_class_name('element-box-contents')).perform()
-        time.sleep(3)
-        chains = webdriver.ActionChains(self.selenium)
-        time.sleep(3)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_87358824'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.release(self.selenium.find_element_by_class_name(self.content)).perform()
+        #chains.drag_and_drop(self.selenium.find_element_by_name(self.paragraph_with_picture), self.selenium.find_element_by_class_name('element-box-contents')).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_62850560'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        time.sleep(3)
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.picture), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_44785763'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.title), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_51424376'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.paragraph), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_92495494'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.multiple_columns), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_45444132'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.custom_html), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_59396708'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.contact_form), self.selenium.find_element_by_class_name(self.content)).perform()
+        time.sleep(3)
+        chains = webdriver.ActionChains(self.selenium)
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.button), self.selenium.find_element_by_class_name(self.content)).perform()
         self.selenium.find_element_by_link_text('Multimedia').click()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_18362204'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.photo_gallery), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_31574711'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.slideshow), self.selenium.find_element_by_class_name(self.content)).perform()
         self.selenium.find_element_by_link_text('Continue').click()
         self.selenium.find_element_by_class_name('weebly-dialog-close').click()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_46196121'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.file), self.selenium.find_element_by_class_name(self.content)).perform()
         handles = self.selenium.window_handles
         self.selenium.switch_to_window(handles[2])
+        time.sleep(3)
         self.selenium.get_screenshot_as_file(self.path + '/upsell.png')
         self.selenium.close()
         self.selenium.switch_to_window(handles[1])
@@ -151,43 +177,43 @@ class Test():
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
         time.sleep(3)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_64190838'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.flash), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_42844424'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.google_maps), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_85353141'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.flickr_photo_slideshow), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_8893461'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.youtube_video), self.selenium.find_element_by_class_name(self.content)).perform()
         self.selenium.find_element_by_link_text('More').click()
         self.selenium.find_element_by_link_text('Layout').click()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_79078446'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.divider), self.selenium.find_element_by_class_name(self.content)).perform()
         self.selenium.find_element_by_link_text('Misc').click()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_62317151'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.feed_reader), self.selenium.find_element_by_class_name(self.content)).perform()
         self.selenium.find_element_by_link_text('Forms').click()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_20040879'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.rsvp_form), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_42391650'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.survey), self.selenium.find_element_by_class_name(self.content)).perform()
         self.selenium.find_element_by_link_text('Design').click()
         self.selenium.find_element_by_id('theme_417534755793912073').click()
         self.selenium.find_element_by_id('theme_189529082218988161').click()
         self.selenium.find_element_by_id('theme_753078197207386506').click()
         self.selenium.find_element_by_id('theme_701731089317975641').click()
-        self.selenium.find_element_by_link_text('Pages').click()
-        self.selenium.find_element_by_id('pageManagerTitleInput').send_keys('pro')
-        self.selenium.find_element_by_class_name('bi').click()
-        self.selenium.find_element_by_link_text('Pages').click()
-        self.selenium.find_element_by_id('pageManagerTitleInput').send_keys('ecom')
-        self.selenium.find_element_by_class_name('bi').click()
+        #self.selenium.find_element_by_link_text('Pages').click()
+        #self.selenium.find_element_by_id('pageManagerTitleInput').send_keys('pro')
+        #self.selenium.find_element_by_class_name('bi').click()
+        #self.selenium.find_element_by_link_text('Pages').click()
+        #self.selenium.find_element_by_id('pageManagerTitleInput').send_keys('ecom')
+        #self.selenium.find_element_by_class_name('bi').click()
         self.selenium.find_element_by_link_text('Settings').click()
         time.sleep(5)
         WebDriverWait(self.selenium, 30).until(lambda d : d.find_element_by_name('site_title')).clear()
@@ -205,25 +231,27 @@ class Test():
         #self.selenium.find_element_by_link_text('Pages').click()
         #self.selenium.find_element_by_xpath('//span[contains(.,"pro")] ').click()
         #self.selenium.find_element_by_xpath('//span[contains(.,"Edit Page")] ').click()
+        self.make_page('pro')
+        time.sleep(3)
         try:
             self.selenium.find_element_by_link_text('Multimedia').click()
         except TimeoutException:
-            self.selenium.find_element_by_class_name('weebly-content-area').send_keys(Keys.ESCAPE)
+            self.selenium.find_element_by_class_name(self.content).send_keys(Keys.ESCAPE)
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_46196121'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.file), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_82970842'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.audio_player), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_3971316'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.embeded_document), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
         self.selenium.find_element_by_link_text('More').click()
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_48408403'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.online_bookings), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         self.selenium.find_element_by_name('hourtown_email').send_keys('seleniumhumantwo@bluehost.com')
         self.selenium.find_element_by_css_selector('img#lightbox_submitbtn').click()
@@ -235,31 +263,46 @@ class Test():
         #self.selenium.find_element_by_link_text('Pages').click()
         #self.selenium.find_element_by_xpath('//span[contains(.,"ecom")] ').click()
         #self.selenium.find_element_by_xpath('//span[contains(, "Edit Page")] ').click()
+        self.make_page('ecom')
+        time.sleep(3)
         try:
             self.selenium.find_element_by_link_text('Revenue').click()
         except TimeoutException:
-            self.selenium.find_element_by_class_name('weebly-content-area').send_keys(Keys.ESCAPE)
+            self.selenium.find_element_by_class_name(self.content).send_keys(Keys.ESCAPE)
         time.sleep(3)
         chains = webdriver.ActionChains(self.selenium)
-        chains.drag_and_drop(self.selenium.find_element_by_name('id_61719152'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        chains.drag_and_drop(self.selenium.find_element_by_name(self.product_block), self.selenium.find_element_by_class_name(self.content)).perform()
         time.sleep(3)
         self.selenium.find_element_by_id('merchant-radio-paypal').click()
         self.selenium.find_element_by_css_selector('img#lightbox_submitbtn').click()
         #chains = webdriver.ActionChains(self.selenium)
-        #chains.drag_and_drop(self.selenium.find_element_by_name('id_61719152'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        #chains.drag_and_drop(self.selenium.find_element_by_name(self.product_block), self.selenium.find_element_by_class_name(self.content)).perform()
         #time.sleep(3)
         #chains = webdriver.ActionChains(self.selenium)
-        #chains.drag_and_drop(self.selenium.find_element_by_name('id_61719152'), self.selenium.find_element_by_class_name('weebly-content-area')).perform()
+        #chains.drag_and_drop(self.selenium.find_element_by_name(self.product_block), self.selenium.find_element_by_class_name(self.content)).perform()
 
 
-    def make_pages(self):
-        print('coming soon')
+    def make_page(self, name):
+        print('Creating page ' + name)
+        try:
+            self.selenium.find_element_by_link_text('Pages').click()
+        except TimeoutException:
+            self.selenium.find_element_by_id('pageManagerAddPage').send_keys(Keys.ESCAPE)
+        self.selenium.find_element_by_id('pageManagerAddPage').click()
+        self.selenium.find_element_by_id('pageManagerTitleInput').clear()
+        self.selenium.find_element_by_id('pageManagerTitleInput').send_keys(name)
+        self.selenium.find_element_by_class_name('bi').click()
 
     def test_pages(self, dom):
         self.selenium.get('http://' + dom)
         time.sleep(3)
-        self.selenium.get_screenshot_as_file(self.path + '/page.png')
-
+        self.selenium.get_screenshot_as_file(self.path + '/homepage.png')
+        self.selenium.get('http://' + dom + '/pro.html')
+        time.sleep(3)
+        self.selenium.get_screenshot_as_file(self.path + '/propage.png')
+        self.selenium.get('http://' + dom + '/ecom.html')
+        time.sleep(3)
+        self.selenium.get_screenshot_as_file(self.path + '/ecompage.png')
     def get_to_weebly(self, dom):
         WebDriverWait(self.selenium, 10).until(lambda d : d.find_element_by_id('icon-weebly')).click() 
         time.sleep(15)
