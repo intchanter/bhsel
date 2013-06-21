@@ -1,0 +1,12 @@
+distribute==0.6.28
+logilab-astng==0.24.1
+logilab-common==0.59.0
+nose==1.2.1
+pep8==1.4.1
+py==1.4.12
+pylint==0.26.0
+pytest==2.3.4
+python3-memcached==1.44.1
+requests==1.2.0
+selenium==2.32.0
+wsgiref==0.1.2
