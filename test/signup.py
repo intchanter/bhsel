@@ -24,3 +24,6 @@ class TestSignup(TestCase):  # pylint: disable=R0904
         '''
         self.user.login()
         basic_signup()  # contains the needed assertions
+
+    def tearDown(self):
+        self.user.selenium.quit()
