@@ -2,12 +2,19 @@ from page.www.main import Main
 from config import config
 import asserts
 
-def basic_signup(domain = config.existing_domain):
+def basic_signup(domain = config.existing_domain, domain_type = 'existing'):
+    '''
+    Run through a full signup, using the specified domain name if provided.
+
+    If domain_type is specified, pass it to the underlying code.
+
+    Returns nothing.
+    '''
     page = Main(config)
     page.selenium.get('http://www.bluehost.com')
     page.validate()  # Main page
     page = page.start_signup()
-    page = page.choose_domain(domain)
+    page = page.choose_domain(domain, domain_type)
     page = page.submit_signup_form()
     page = page.complete_signup()
     page = page.go_cpm()

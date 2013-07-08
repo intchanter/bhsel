@@ -55,7 +55,7 @@ class Signup(Page):
 
     def choose_domain(self, domain, kind='existing'):
         '''
-        Enter and submit the domain name.
+        Enter and submit the domain name using an existing domain.
         '''
 
         if kind == 'existing':
@@ -68,14 +68,18 @@ class Signup(Page):
             field.send_keys(domain)
             button.click()
         elif kind == 'new':
-            field = self.selenium.find_element(
+            domain_field = self.selenium.find_element(
                 *self.elements['new_domain_field']
             )
             button = self.selenium.find_element(
                 *self.elements['new_domain_next']
             )
-            # TODO: split and handle the TLD separately
-            field.send_keys(domain)
+            tld_field = self.selenium.find_element(
+                *self.elements['new_domain_tld']
+            )
+            domain, tld = domain.split('.', 1)
+            domain_field.send_keys(domain)
+            tld_field.send_keys(tld)
             button.click()
         else:
             raise ValueError(

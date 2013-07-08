@@ -18,6 +18,6 @@ class Config(object):
         self.debug = True
         timestamp = int(time.time())
         self.existing_domain = 'qa-sel-{}.ru'.format(timestamp)
-        self.existing_domain = 'qa-sel-{}.com'.format(timestamp)
+        self.new_domain = 'qa-sel-{}.com'.format(timestamp)
 
 config = Config(Firefox(), 'http://www.bluehost.com/', 'bluehost')
