@@ -2,7 +2,7 @@ from page.www.main import Main
 from config import config
 import asserts
 
-def basic_signup(domain = config.existing_domain):
+def basic_signup(config, domain = config.existing_domain):
     page = Main(config)
     page.selenium.get('http://www.bluehost.com')
     page.validate()  # Main page
