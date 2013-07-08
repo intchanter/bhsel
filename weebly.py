@@ -88,6 +88,7 @@ class Test():
         self.selenium.find_element_by_css_selector('button.btn_primary').click()
         self.selenium.switch_to_alert().accept()
         time.sleep(3)
+        
         if self.selenium.find_elements_by_class_name('login_username'):
             users.login_single_page()
             self.selenium.find_element_by_css_selector('button.btn_primary').click()
