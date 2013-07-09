@@ -1,8 +1,11 @@
 from page.www.main import Main
-from config import config
+import config
 import asserts
 
-def basic_signup(domain = config.existing_domain, domain_type = 'existing'):
+def basic_signup(
+        domain = config.config.existing_domain,
+        domain_type = 'existing'
+    ):
     '''
     Run through a full signup, using the specified domain name if provided.
 
@@ -10,7 +13,7 @@ def basic_signup(domain = config.existing_domain, domain_type = 'existing'):
 
     Returns nothing.
     '''
-    page = Main(config)
+    page = Main(config.config)
     page.selenium.get('http://www.bluehost.com')
     page.validate()  # Main page
     page = page.start_signup()

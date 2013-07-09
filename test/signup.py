@@ -3,7 +3,7 @@ Signup tests.
 '''
 
 import asserts
-from config import config
+import config
 from page.www.main import Main
 from unittest import TestCase
 from testuser import User
@@ -16,7 +16,7 @@ class TestSignup(TestCase):  # pylint: disable=R0904
     '''
 
     def setUp(self):
-        self.user = User(config.selenium)
+        self.user = User(config.config.selenium)
         self.user.login()
 
     def test_basic_signup(self):
@@ -30,7 +30,7 @@ class TestSignup(TestCase):  # pylint: disable=R0904
         #'''
         #Run through a signup with a purchased domain.
         #'''
-        #basic_signup(domain = config.new_domain, domain_type = 'existing')
+        #basic_signup(domain = config.config.new_domain, domain_type = 'existing')
 
     def tearDown(self):
         self.user.selenium.quit()
